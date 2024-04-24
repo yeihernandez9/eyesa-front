@@ -1,16 +1,20 @@
-.login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .login-card {
-    width: 400px;
-  }
+.card {
+  max-width: 400px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.content {
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
   
   .button-container {
-    margin-top: 16px; /* Ajusta según sea necesario */
+    margin-top: 16px;
   }
 
   .full-width-input {
@@ -18,11 +22,19 @@
   }
 
   .register-link {
-    color: blue; /* Color del enlace */
-    text-decoration: underline; /* Subrayado */
-    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer; 
   }
   
   .register-link:hover {
-    color: darkblue; /* Cambia el color al pasar el ratón */
+    color: darkblue; 
   }
+
+.alert-warning{
+  color: red;
+}
+
+.actions-center{
+  text-align: center;
+}

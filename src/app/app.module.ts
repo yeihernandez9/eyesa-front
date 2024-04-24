@@ -18,9 +18,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 import { AppbarComponent } from './components/appbar/appbar.component';
 
 import { httpInterceptorProviders } from './helpers/http.interceptor';
+import { LayoutPublicComponent } from './pages/layout-public/layout-public.component';
+import { LayoutPrivateComponent } from './pages/layout-private/layout-private.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { UsersComponent } from './pages/users/users.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +35,11 @@ import { httpInterceptorProviders } from './helpers/http.interceptor';
     RegisterComponent,
     LayoutComponent,
     DashboardComponent,
-    AppbarComponent
+    AppbarComponent,
+    LayoutPublicComponent,
+    LayoutPrivateComponent,
+    SidebarComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +51,9 @@ import { httpInterceptorProviders } from './helpers/http.interceptor';
     MatButtonModule,
     MatCardModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatSidenavModule,
+    MatMenuModule
   ],
   providers: [
     httpInterceptorProviders,

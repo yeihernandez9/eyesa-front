@@ -1,33 +1,158 @@
 <mat-card class="card">
     <mat-card-content class="content">
-      <form class="form">
+        <mat-card-header>
+            <mat-card-title>Registro</mat-card-title>
+          </mat-card-header>
+        @if (!isSuccessful) {
+            @if (f.submitted && isSignUpFailed) {
+                <div class="alert alert-warning">
+                  Signup failed!<br />{{ errorMessage }}
+                </div>
+                }
+      <form 
+        name="form"
+        (ngSubmit)="f.form.valid && onSubmit()"
+        #f="ngForm"
+        novalidate>
         <div class="input-container">
-          <mat-form-field>
-            <input matInput placeholder="Username">
+            <mat-form-field class="login-form-field">
+                <mat-label>Username</mat-label>
+                <input 
+                matInput 
+                type="text"
+                cclass="full-width-input"
+                placeholder="Username"
+                name="username" 
+                [(ngModel)]="form.username"
+                required
+                minlength="3"
+                maxlength="20"
+                #username="ngModel"
+                [ngClass]="{ 'is-invalid': f.submitted && username.errors }"
+                >
+              </mat-form-field>
+              @if (username.errors && f.submitted) {
+                <div class="invalid-feedback">
+                  @if (username.errors['required']) {
+                  <div class="alert alert-warning">Username is required</div>
+                  }
+                  @if (username.errors['minlength']) {
+                  <div class="alert alert-warning">Username must be at least 3 characters</div>
+                  }
+                  @if (username.errors['maxlength']) {
+                  <div class="alert alert-warning">Username must be at most 20 characters</div>
+                  }
+                </div>
+                }
+        </div>
+        
+        <div class="input-container">
+            <mat-form-field class="login-form-field">
+                <mat-label>Nombre</mat-label>
+            <input 
+                matInput
+                type="text" 
+                class="full-width-input"
+                placeholder="Nombre"
+                name="name" 
+                [(ngModel)]="form.name"
+                required
+                minlength="4"
+                #name="ngModel"
+                [ngClass]="{ 'is-invalid': f.submitted && name.errors }"
+            >
+          </mat-form-field>
+          @if (username.errors && f.submitted) {
+            <div class="invalid-feedback">
+              @if (username.errors['required']) {
+              <div class="alert alert-warning">Nombre is required</div>
+              }
+              @if (username.errors['minlength']) {
+              <div class="alert alert-warning">Nombre must be at least 6 characters</div>
+              }
+              @if (username.errors['maxlength']) {
+              <div class="alert alert-warning">Nombre must be at most 20 characters</div>
+              }
+            </div>
+            }
+        </div>
+        <div class="input-container">
+            <mat-form-field class="login-form-field">
+                <mat-label>Apellido</mat-label>
+            <input 
+            matInput 
+            class="full-width-input"
+            placeholder="Apellido"
+            [(ngModel)]="form.lastname"
+            name="lastname" 
+            #lastname="ngModel"
+            >
           </mat-form-field>
         </div>
         <div class="input-container">
-          <mat-form-field>
-            <input matInput placeholder="Name">
+            <mat-form-field class="login-form-field">
+                <mat-label>Correo</mat-label>
+            <input 
+                matInput 
+                class="full-width-input"
+                type="email" 
+                placeholder="Email"
+                name="email" 
+                [(ngModel)]="form.email"
+                required
+                email
+                #email="ngModel"
+                [ngClass]="{ 'is-invalid': f.submitted && email.errors }"
+            >
+            @if (email.errors && f.submitted) {
+                <div class="invalid-feedback">
+                  @if (email.errors['required']) {
+                  <div class="alert alert-warning">Email is required</div>
+                  }
+                  @if (email.errors['email']) {
+                  <div class="alert alert-warning">Email must be a valid email address</div>
+                  }
+                </div>
+                }
           </mat-form-field>
+
         </div>
         <div class="input-container">
-          <mat-form-field>
-            <input matInput placeholder="Lastname">
+            <mat-form-field class="login-form-field">
+                <mat-label>Clave</mat-label>
+            <input 
+                matInput 
+                class="full-width-input"
+                type="password" 
+                placeholder="Password"
+                name="password" 
+                [(ngModel)]="form.password"
+                required
+                minlength="6"
+                #password="ngModel"
+                [ngClass]="{ 'is-invalid': f.submitted && password.errors }"
+            >
+            @if (password.errors && f.submitted) {
+                <div class="invalid-feedback">
+                  @if (password.errors['required']) {
+                  <div class="alert alert-warning">Password is required</div>
+                  }
+                  @if (password.errors['minlength']) {
+                  <div class="alert alert-warning">Password must be at least 6 characters</div>
+                  }
+                </div>
+                }
           </mat-form-field>
         </div>
-        <div class="input-container">
-          <mat-form-field>
-            <input matInput type="email" placeholder="Email">
-          </mat-form-field>
-        </div>
-        <div class="input-container">
-          <mat-form-field>
-            <input matInput type="password" placeholder="Password">
-          </mat-form-field>
-        </div>
-        <button mat-raised-button color="primary">Register</button>
+        <button mat-raised-button color="primary" >Registro</button>
+        
       </form>
+      <mat-card-actions>
+        <a routerLink="/login" class="register-link">Ya estoy registrado</a>
+      </mat-card-actions>
+    } @else {
+        <div class="alert alert-success">Su registro fue exitoso! <a routerLink="/login" class="register-link">iniciar session</a></div>
+        }
     </mat-card-content>
   </mat-card>
   
