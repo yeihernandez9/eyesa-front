@@ -1,0 +1,28 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .login-card {
+    width: 400px;
+  }
+  
+  .button-container {
+    margin-top: 16px; /* Ajusta según sea necesario */
+  }
+
+  .full-width-input {
+    width: 100%;
+  }
+
+  .register-link {
+    color: blue; /* Color del enlace */
+    text-decoration: underline; /* Subrayado */
+    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+  }
+  
+  .register-link:hover {
+    color: darkblue; /* Cambia el color al pasar el ratón */
+  }
